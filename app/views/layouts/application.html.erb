@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container" style="border: solid; width: 95%; margin-top: 10px;">
+      <div class="row" style="border-bottom: solid; height: 100px;">
+        <div class="col-sm-1"></div>
+          <dir class="border">
+            <div class="col-sm-2" style="border: solid; height: 70px; margin-top: 15px;"><h1 style="text-align: center; line-height: 70px; margin: 0;
+              padding: 0;">LOGO</h1></div>
+          </dir>
+      </div>
+        <%= yield %>
+      <div class="row" style="border-top: solid; height: 90px;"></div>
+    </div>
+  </body>
+</html>
