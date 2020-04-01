@@ -16,6 +16,26 @@
           <dir class="border">
             <div class="col-sm-2" style="border: solid; height: 70px; margin-top: 15px;"><h1 style="text-align: center; line-height: 70px; margin: 0;
               padding: 0;">LOGO</h1></div>
+
+         <nav class="col-xs-5">
+          <ul class="nav navbar-nav navbar-right">
+            <% if admin_signed_in? %>
+            <li><%= link_to '商品一覧', admin_items_path, class: 'glyphicon glyphicon-home home' %></li>
+            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
+
+            <% elsif end_user_signed_in? %>
+              <li><%= link_to 'マイページ', end_user_path, class: 'glyphicon glyphicon-home home' %></li>
+              <li><%= link_to 'ログアウト', destroy_end_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %></li>
+            <% else %>
+              <% if current_page?(new_end_user_session_path) || current_page?(new_end_user_registration_path) %>
+                <li><%= link_to 'サインアップ', new_end_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %></li>
+              <li><%= link_to 'ログイン', new_end_user_session_path, class: 'glyphicon glyphicon-log-in sign_in' %></li>
+              <% end %>
+            <% end %>
+
+          </ul>
+        </nav>
+
           </dir>
       </div>
         <%= yield %>
